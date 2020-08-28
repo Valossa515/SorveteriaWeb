@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "clientes")
@@ -53,6 +54,15 @@ public class Cliente implements Serializable{
 
 	public Boolean getLiberado() {
 		return liberado;
+	}
+	@Transient
+	public String getAtivoFormatado() {
+		String ativoFormatado = "Não";
+
+		if (liberado) {
+			ativoFormatado = "Sim";
+		}
+		return ativoFormatado;
 	}
 
 	public void setLiberado(Boolean liberado) {
