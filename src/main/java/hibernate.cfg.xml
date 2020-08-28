@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/sorveteria?useTimezone=true&amp;serverTimezone=UTC</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">Felipe@515</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">2</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+		
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+        
+        <property name="hibernate.dbcp.initialSize">5</property>
+        <property name="hibernate.dbcp.maxTotal">20</property>
+        <property name="hibernate.dbcp.maxIdle">10</property>
+        <property name="hibernate.dbcp.minIdle">5</property>
+        <property name="hibernate.dbcp.maxWaitMillis">-1</property>
+		<property name="format_sql">true</property>
+		
+		
+        <mapping class="br.com.felipe.sorveteria.domain.Fabricante"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Categoria"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Produto"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Estado"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Cidade"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Cliente"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Funcionario"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Pessoa"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Usuario"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Venda"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.ItemVenda"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Caixa"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Movimentacao"/>
+    </session-factory>
+
+</hibernate-configuration>
