@@ -50,8 +50,7 @@
    		<mapping class="br.com.felipe.sorveteria.domain.Usuario"/>
    		<mapping class="br.com.felipe.sorveteria.domain.Venda"/>
    		<mapping class="br.com.felipe.sorveteria.domain.ItemVenda"/>
-   		<mapping class="br.com.felipe.sorveteria.domain.Caixa"/>
-   		<mapping class="br.com.felipe.sorveteria.domain.Movimentacao"/>
+   		<mapping class="br.com.felipe.sorveteria.domain.Evento"/>
     </session-factory>
 
 </hibernate-configuration>

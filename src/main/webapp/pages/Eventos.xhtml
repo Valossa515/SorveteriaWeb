@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/templates/modelo.xhtml">
+	
+	<ui:define name="conteudo">
+		<h:form id="formcalendar">
+			<p:schedule value="#{eventoBean.eventos}">
+				<p:ajax event="dateSelect" listener="#{eventoBean.novo}"
+					oncomplete="PF('dialogo').show();"
+					update=":formularioCadastro:painel" />
+			</p:schedule>
+		</h:form>
+
+		<p:dialog header="Caixa" closable="true" draggable="false"
+			modal="true" resizable="false" widgetVar="dialogo">
+			<h:form id="formularioCadastro">
+				<h:panelGrid id="painel" columns="2">
+				
+					<p:outputLabel value="Titulo: " />
+					<p:inputText value="#{eventoBean.evento.status}">
+					</p:inputText>
+					
+					<p:outputLabel value="Data de Inicio: " />
+					<p:datePicker value="#{eventoBean.evento.inicio}" showTime="true"
+					pattern="dd/MM/yyyy">
+						<!-- <f:convertDateTime locale="pt_BR" type="both" pattern="dd/MM/yyyy"/> -->
+					</p:datePicker>
+					
+					<p:outputLabel value="Data de Termino: " />
+					<p:datePicker value="#{eventoBean.evento.fim}" showTime="true"
+					pattern="dd/MM/yyyy">
+						<!-- <f:convertDateTime locale="pt_BR" type="both" pattern="dd/MM/yyyy"/> -->
+					</p:datePicker>
+					
+					
+					<p:outputLabel value="Valor de Abertura: " />
+					<p:inputText value="#{eventoBean.evento.valor}">
+						<f:convertNumber locale="pt_BR" />
+					</p:inputText>
+
+					<p:outputLabel value="Funcionário: " />
+					<p:selectOneMenu value="#{eventoBean.evento.funcionario}"
+						converter="omnifaces.SelectItemsConverter">
+						<f:selectItem noSelectionOption="true"
+							itemLabel="Selecione um funcionário" />
+						<f:selectItems value="#{eventoBean.funcionarios}" var="funcionarios" itemValue="#{funcionarios}"
+							itemLabel="#{funcionarios.pessoa.nome}" />
+					</p:selectOneMenu>
+				</h:panelGrid>
+				<h:panelGrid columns="1">
+					<p:commandButton value="Salvar" oncomplete="PF('dialogo').hide();"
+					update=":mensagem" actionListener="#{eventoBean.salvar}"/>
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+	</ui:define>
+</ui:composition>
