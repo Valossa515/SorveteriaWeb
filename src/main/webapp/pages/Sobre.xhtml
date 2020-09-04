@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/templates/modelo.xhtml">
+	
+	<ui:define name="conteudo">
+		<h:form>
+			<p:panel header="Informações">
+				<h:panelGrid columns="4" id="pn_usuario">
+					<h:outputText value="Versão 1.0-01/09/2020 - Desenvolvido por Felipe Martins Mascarenhas de Oliveira" />
+					<h:outputText value="Contato: fe.mmo515@gmail.com" />
+					<br></br>
+					<h:outputLink value="https://github.com/Valossa515">GitHub</h:outputLink>
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

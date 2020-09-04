@@ -2,7 +2,6 @@ package br.com.felipe.sorveteria.bean;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -50,6 +49,11 @@ public class EventoBean implements Serializable{
 	public void listar() {
 		eventos = new DefaultScheduleModel();
 	}
+	public LocalDateTime getRandomDateTime(LocalDateTime base) {
+        LocalDateTime dateTime = base.withMinute(0).withSecond(0).withNano(0);
+        return dateTime.plusDays(((int) (Math.random()*30)));
+    }
+     
 	public void novo(SelectEvent<LocalDateTime> e) {
 		evento = new Evento();
 		evento.setInicio(e.getObject());
